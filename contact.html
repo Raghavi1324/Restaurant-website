@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gourmet Haven - Fine Dining Restaurant</title>
+    <title>Contact - Gourmet Haven</title>
     <style>
         * {
             margin: 0;
@@ -102,10 +102,10 @@
         }
 
         /* Hero Section */
-        #home {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-            url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&h=900&fit=crop');
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+            url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&h=900&fit=crop');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -125,24 +125,6 @@
             font-size: 1.5rem;
             margin-bottom: 2rem;
             animation: fadeInUp 1s 0.3s backwards;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
-            animation: fadeInUp 1s 0.6s backwards;
-        }
-
-        .cta-button:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.3);
         }
 
         /* Section Styling */
@@ -169,37 +151,48 @@
             margin: 1rem auto;
         }
 
-        /* About Section */
-        #about {
-            background: var(--light);
-        }
-
-        .about-content {
+        /* Contact Section */
+        .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            align-items: center;
         }
 
-        .about-text h3 {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        .about-image {
-            width: 100%;
-            height: 400px;
-            background-size: cover;
-            background-position: center;
+        .contact-info {
+            background: white;
+            padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+
+        .contact-map {
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         /* Footer */
@@ -251,7 +244,7 @@
                 font-size: 1.2rem;
             }
 
-            .about-content {
+            .contact-content {
                 grid-template-columns: 1fr;
             }
         }
@@ -277,26 +270,60 @@
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home">
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="hero-content">
-            <h1>Welcome to Gourmet Haven</h1>
-            <p>Experience Culinary Excellence</p>
-            <a href="reservations.html" class="cta-button">Reserve Your Table</a>
+            <h1>Contact Us</h1>
+            <p>Get in Touch</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Us</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Our Story</h3>
-                <p>Gourmet Haven has been serving exceptional cuisine for over 20 years. Our passion for culinary excellence and dedication to using only the finest ingredients has made us a beloved destination for food enthusiasts.</p>
-                <p>Our talented chefs combine traditional techniques with modern innovation to create unforgettable dining experiences. Every dish is crafted with care, attention to detail, and a commitment to exceeding your expectations.</p>
-                <p>We believe that dining is more than just a meal – it's an experience that brings people together, creates memories, and celebrates the joy of exceptional food.</p>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact Information</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📍</div>
+                    <div>
+                        <strong>Address</strong><br>
+                        123 Culinary Street, Food District<br>
+                        New York, NY 10001
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📞</div>
+                    <div>
+                        <strong>Phone</strong><br>
+                        +1 (555) 123-4567
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">✉️</div>
+                    <div>
+                        <strong>Email</strong><br>
+                        info@gourmethaven.com
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">⏰</div>
+                    <div>
+                        <strong>Hours</strong><br>
+                        Mon-Thu: 11:00 AM - 10:00 PM<br>
+                        Fri-Sat: 11:00 AM - 11:00 PM<br>
+                        Sunday: 10:00 AM - 9:00 PM
+                    </div>
+                </div>
             </div>
-            <div class="about-image" style="background-image:url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop')"></div>
+            <div class="contact-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2412648718453!2d-73.98823492346434!3d40.75889597138558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1708001234567!5m2!1sen!2sus"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
     </section>
 
@@ -318,20 +345,6 @@
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-            });
-        });
-
-        // Smooth Scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
             });
         });
     </script>

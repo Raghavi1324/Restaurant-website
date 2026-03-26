@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gourmet Haven - Fine Dining Restaurant</title>
+    <title>Menu - Gourmet Haven</title>
     <style>
         * {
             margin: 0;
@@ -102,10 +102,10 @@
         }
 
         /* Hero Section */
-        #home {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-            url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&h=900&fit=crop');
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+            url('https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=1600&h=900&fit=crop');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -125,24 +125,6 @@
             font-size: 1.5rem;
             margin-bottom: 2rem;
             animation: fadeInUp 1s 0.3s backwards;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
-            animation: fadeInUp 1s 0.6s backwards;
-        }
-
-        .cta-button:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.3);
         }
 
         /* Section Styling */
@@ -169,37 +151,72 @@
             margin: 1rem auto;
         }
 
-        /* About Section */
-        #about {
-            background: var(--light);
-        }
-
-        .about-content {
+        /* Menu Section */
+        .menu-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .about-text h3 {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
+        .menu-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
         }
 
-        .about-text p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            color: #555;
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
 
-        .about-image {
+        .menu-card-image {
             width: 100%;
-            height: 400px;
+            height: 250px;
             background-size: cover;
             background-position: center;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .menu-card:hover .menu-card-image::after {
+            opacity: 1;
+        }
+
+        .menu-card-content {
+            padding: 1.5rem;
+        }
+
+        .menu-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .menu-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .menu-card .price {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: bold;
         }
 
         /* Footer */
@@ -251,7 +268,13 @@
                 font-size: 1.2rem;
             }
 
-            .about-content {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -277,26 +300,66 @@
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home">
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="hero-content">
-            <h1>Welcome to Gourmet Haven</h1>
-            <p>Experience Culinary Excellence</p>
-            <a href="reservations.html" class="cta-button">Reserve Your Table</a>
+            <h1>Our Menu</h1>
+            <p>Discover Culinary Excellence</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Us</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Our Story</h3>
-                <p>Gourmet Haven has been serving exceptional cuisine for over 20 years. Our passion for culinary excellence and dedication to using only the finest ingredients has made us a beloved destination for food enthusiasts.</p>
-                <p>Our talented chefs combine traditional techniques with modern innovation to create unforgettable dining experiences. Every dish is crafted with care, attention to detail, and a commitment to exceeding your expectations.</p>
-                <p>We believe that dining is more than just a meal – it's an experience that brings people together, creates memories, and celebrates the joy of exceptional food.</p>
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2 class="section-title">Featured Dishes</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <div class="menu-card-image" style="background-image:url('https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&h=400&fit=crop')"></div>
+                <div class="menu-card-content">
+                    <h3>Premium Steak</h3>
+                    <p>Grilled to perfection with seasonal vegetables and signature sauce</p>
+                    <div class="price">$45.99</div>
+                </div>
             </div>
-            <div class="about-image" style="background-image:url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop')"></div>
+            <div class="menu-card">
+               <div class="menu-card-image" style="background-image:url('https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&h=400&fit=crop')"></div>
+                <div class="menu-card-content">
+                    <h3>Truffle Pasta</h3>
+                    <p>Handmade pasta with black truffle and parmesan cream</p>
+                    <div class="price">$32.99</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-card-image" style="background-image:url('https://images.unsplash.com/photo-1625944525533-473f1a3d54e7?w=600&h=400&fit=crop')"></div>
+                <div class="menu-card-content">
+                    <h3>Lobster Thermidor</h3>
+                    <p>Fresh lobster in creamy cognac sauce with herbs</p>
+                    <div class="price">$58.99</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-card-image" style="background-image:url('https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&h=400&fit=crop')"></div>
+                <div class="menu-card-content">
+                    <h3>Chocolate Soufflé</h3>
+                    <p>Light and airy chocolate dessert with vanilla ice cream</p>
+                    <div class="price">$18.99</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-card-image" style="background-image:url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=400&fit=crop')"></div>
+                <div class="menu-card-content">
+                    <h3>Wine Selection</h3>
+                    <p>Curated collection of premium wines from around the world</p>
+                    <div class="price">$25+</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-card-image" style="background-image:url('https://images.unsplash.com/photo-1546793665-c74683f339c1?w=600&h=400&fit=crop')"></div>
+                <div class="menu-card-content">
+                    <h3>Caesar Salad</h3>
+                    <p>Fresh romaine with house-made dressing and croutons</p>
+                    <div class="price">$16.99</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -318,20 +381,6 @@
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-            });
-        });
-
-        // Smooth Scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
             });
         });
     </script>

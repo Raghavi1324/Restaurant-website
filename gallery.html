@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gourmet Haven - Fine Dining Restaurant</title>
+    <title>Gallery - Gourmet Haven</title>
     <style>
         * {
             margin: 0;
@@ -102,10 +102,10 @@
         }
 
         /* Hero Section */
-        #home {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-            url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&h=900&fit=crop');
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+            url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&h=900&fit=crop');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -125,24 +125,6 @@
             font-size: 1.5rem;
             margin-bottom: 2rem;
             animation: fadeInUp 1s 0.3s backwards;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
-            animation: fadeInUp 1s 0.6s backwards;
-        }
-
-        .cta-button:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.3);
         }
 
         /* Section Styling */
@@ -169,37 +151,75 @@
             margin: 1rem auto;
         }
 
-        /* About Section */
-        #about {
-            background: var(--light);
-        }
-
-        .about-content {
+        /* Gallery Section */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
 
-        .about-text h3 {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        .about-image {
-            width: 100%;
-            height: 400px;
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
             background-size: cover;
             background-position: center;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            background-repeat: no-repeat;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
 
         /* Footer */
@@ -251,7 +271,13 @@
                 font-size: 1.2rem;
             }
 
-            .about-content {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -277,28 +303,32 @@
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home">
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="hero-content">
-            <h1>Welcome to Gourmet Haven</h1>
-            <p>Experience Culinary Excellence</p>
-            <a href="reservations.html" class="cta-button">Reserve Your Table</a>
+            <h1>Gallery</h1>
+            <p>Capturing Culinary Moments</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Us</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Our Story</h3>
-                <p>Gourmet Haven has been serving exceptional cuisine for over 20 years. Our passion for culinary excellence and dedication to using only the finest ingredients has made us a beloved destination for food enthusiasts.</p>
-                <p>Our talented chefs combine traditional techniques with modern innovation to create unforgettable dining experiences. Every dish is crafted with care, attention to detail, and a commitment to exceeding your expectations.</p>
-                <p>We believe that dining is more than just a meal – it's an experience that brings people together, creates memories, and celebrates the joy of exceptional food.</p>
-            </div>
-            <div class="about-image" style="background-image:url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop')"></div>
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2 class="section-title">Our Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop')" onclick="openLightbox(this)"></div>
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop')" onclick="openLightbox(this)"></div>
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=600&fit=crop')" onclick="openLightbox(this)"></div>
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1592861956120-e524fc739696?w=800&h=600&fit=crop')" onclick="openLightbox(this)"></div>
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1466220549276-aef9ce186540?w=800&h=600&fit=crop')" onclick="openLightbox(this)"></div>
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=800&h=600&fit=crop')" onclick="openLightbox(this)"></div>
         </div>
     </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close">&times;</button>
+        <div class="lightbox-content" id="lightboxContent"></div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -321,19 +351,21 @@
             });
         });
 
-        // Smooth Scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        // Lightbox Functions
+        function openLightbox(element) {
+            const lightbox = document.getElementById('lightbox');
+            const content = document.getElementById('lightboxContent');
+            const bgImage = element.style.backgroundImage;
+            content.style.backgroundImage = bgImage;
+            content.style.width = '800px';
+            content.style.height = '600px';
+            content.style.borderRadius = '10px';
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
     </script>
 </body>
 </html>
